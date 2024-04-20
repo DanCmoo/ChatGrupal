@@ -17,8 +17,9 @@ public class ControlServidor {
     private ConexionProperties conexionProperties;
 
     public ControlServidor(){
-        vistaServidor= new VistaServidor(this);
+        vistaServidor= new VistaServidor(this,"Consola del servidor");
         cargarDatos();
+        iniciarServidor();
 
 
     }
@@ -44,21 +45,23 @@ public class ControlServidor {
             vistaServidor.mostrarJOptionPane("SERVIDOR ACTIVADO");
             while (servidor.isEscuchando()){
                 try{
+                    vistaServidor.mostrarJOptionPane("ESPERANDO USUARIOS");
                     servidor.setSocketComunicacion(servidor.getServidorComunicacion().accept());
                     servidor.setSocketMensaje(servidor.getServidorMensaje().accept());
                 }catch (IOException ex2){
                     ex2.printStackTrace();
                 }
-                // Se instancia el usuario
+                ControlUsuario controlUsuario = new ControlUsuario(this,servidor.getSocketComunicacion(),servidor.getSocketMensaje());
+                controlUsuario.start();
 
             }
-
-
         } catch (IOException ex1){
             ex1.printStackTrace();
         }
 
     }
 
-
+    public VistaServidor getVistaServidor() {
+        return vistaServidor;
+    }
 }

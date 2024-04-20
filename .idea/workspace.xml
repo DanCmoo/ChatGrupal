@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Taller 4.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Servidor/Main.java" afterDir="false" />
+    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="Carga inicial">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/servidor.properties" beforeDir="false" afterPath="$PROJECT_DIR$/data/servidor.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cliente/controller/ControlCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/controller/ControlCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servidor/controller/ControlServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servidor/controller/ControlServidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Servidor/view/VistaServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servidor/view/VistaServidor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +26,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2fCh2fTWBj8h3dlsBPyrG1B9YhH" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -41,12 +39,54 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.VistaServidor.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true"
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Universidad XD/Programas/Taller 4"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Servidor.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Servidor.Main" />
+      <module name="Taller 4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Servidor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VistaServidor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Servidor.view.VistaServidor" />
+      <module name="Taller 4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Servidor.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.VistaServidor" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -56,6 +96,19 @@
       <option name="presentableId" value="Default" />
       <updated>1713310764585</updated>
     </task>
+    <task id="LOCAL-00001" summary="Carga inicial">
+      <option name="closed" value="true" />
+      <created>1713455230325</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713455230325</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Carga inicial" />
+    <option name="LAST_COMMIT_MESSAGE" value="Carga inicial" />
   </component>
 </project>
