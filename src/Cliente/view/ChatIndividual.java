@@ -54,13 +54,13 @@ public class ChatIndividual extends JPanel {
         panelSur.add(textoEscribir, BorderLayout.NORTH);
 
         cajaMensaje = new JTextField();
-        cajaMensaje.setPreferredSize(new Dimension(350,50));
+        cajaMensaje.setPreferredSize(new Dimension(300,50));
         cajaMensaje.setFont(fuenteTexto);
         cajaMensaje.setBorder(new EmptyBorder(borde, borde, borde, borde));
         panelSur.add(cajaMensaje, BorderLayout.CENTER);
 
         botonEnviar = new JButton("Enviar");
-        botonEnviar.setPreferredSize(new Dimension(50,50));
+        botonEnviar.setPreferredSize(new Dimension(100,50));
         botonEnviar.setActionCommand("ENVIAR");
         botonEnviar.setFont(fuenteTexto);
         botonEnviar.setForeground(new Color(7,94,84));
