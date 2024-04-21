@@ -29,6 +29,9 @@ public class ChatGrupal extends JFrame {
         panelPrincipal.setLayout(new BorderLayout());
         this.getContentPane().add(panelPrincipal);
 
+        botonesNombresUsuarios = new ArrayList<JButton>();
+        chats = new ArrayList<ChatIndividual>();
+
         barraMenu = new JMenuBar();
 
         menuAcercaDe = new JMenu("Acerca de");
@@ -64,7 +67,6 @@ public class ChatGrupal extends JFrame {
 
     public void agregarUsuarios(String nombreDeUsuario){
         JButton boton = new JButton();
-        botonesNombresUsuarios = new ArrayList<JButton>();
         boton.setBackground(Color.WHITE);
         boton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         boton.setFont(fuenteTexto);
@@ -74,7 +76,6 @@ public class ChatGrupal extends JFrame {
         panelIzquierdoPrincipal.add(boton);
 
         ChatIndividual chat = new ChatIndividual(nombreDeUsuario);
-        chats = new ArrayList<ChatIndividual>();
         chat.setPreferredSize(new Dimension(400, 0));
         chats.add(chat);
         panelPrincipal.add(chat, BorderLayout.CENTER);
@@ -84,6 +85,78 @@ public class ChatGrupal extends JFrame {
 
     public void mostrarJOption(String mensaje){
         JOptionPane.showMessageDialog(null,mensaje);
+    }
+
+    public JPanel getPanelPrincipal() {
+        return panelPrincipal;
+    }
+
+    public void setPanelPrincipal(JPanel panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
+    public JPanel getPanelIzquierdoPrincipal() {
+        return panelIzquierdoPrincipal;
+    }
+
+    public void setPanelIzquierdoPrincipal(JPanel panelIzquierdoPrincipal) {
+        this.panelIzquierdoPrincipal = panelIzquierdoPrincipal;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public void setScrollPane(JScrollPane scrollPane) {
+        this.scrollPane = scrollPane;
+    }
+
+    public JMenuBar getBarraMenu() {
+        return barraMenu;
+    }
+
+    public void setBarraMenu(JMenuBar barraMenu) {
+        this.barraMenu = barraMenu;
+    }
+
+    public JMenu getMenuAcercaDe() {
+        return menuAcercaDe;
+    }
+
+    public void setMenuAcercaDe(JMenu menuAcercaDe) {
+        this.menuAcercaDe = menuAcercaDe;
+    }
+
+    public JMenuItem getItemAcercaDe() {
+        return itemAcercaDe;
+    }
+
+    public void setItemAcercaDe(JMenuItem itemAcercaDe) {
+        this.itemAcercaDe = itemAcercaDe;
+    }
+
+    public ChatIndividual getPanelchat() {
+        return panelchat;
+    }
+
+    public void setPanelchat(ChatIndividual panelchat) {
+        this.panelchat = panelchat;
+    }
+
+    public ArrayList<JButton> getBotonesNombresUsuarios() {
+        return botonesNombresUsuarios;
+    }
+
+    public void setBotonesNombresUsuarios(ArrayList<JButton> botonesNombresUsuarios) {
+        this.botonesNombresUsuarios = botonesNombresUsuarios;
+    }
+
+    public ArrayList<ChatIndividual> getChats() {
+        return chats;
+    }
+
+    public void setChats(ArrayList<ChatIndividual> chats) {
+        this.chats = chats;
     }
 
     public static void main(String[] args) {
