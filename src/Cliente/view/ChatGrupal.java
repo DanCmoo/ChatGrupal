@@ -13,6 +13,7 @@ public class ChatGrupal extends JFrame {
     private ChatIndividual panelchat;
     private ArrayList<JButton> botonesNombresUsuarios;
     private ArrayList<ChatIndividual> chats;
+    Font fuenteTexto = new Font("FixedSys", Font.BOLD, 15);
 
     public ChatGrupal(){
         super("Chat");
@@ -23,8 +24,6 @@ public class ChatGrupal extends JFrame {
     }
 
     public void inicializar(){
-
-        Font fuenteTexto = new Font("FixedSys", Font.BOLD, 15);
 
         panelPrincipal = new JPanel();
         panelPrincipal.setLayout(new BorderLayout());
@@ -51,6 +50,7 @@ public class ChatGrupal extends JFrame {
 
         panelIzquierdoPrincipal = new JPanel();
         panelIzquierdoPrincipal.setLayout(new BoxLayout(panelIzquierdoPrincipal, BoxLayout.Y_AXIS));
+        panelIzquierdoPrincipal.setBackground(Color.WHITE);
 
         scrollPane = new JScrollPane(panelIzquierdoPrincipal);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
@@ -62,10 +62,32 @@ public class ChatGrupal extends JFrame {
         panelPrincipal.add(panelchat, BorderLayout.CENTER);
     }
 
-    public void agregarBotones(String nombreDeUsuario){
+    public void agregarUsuarios(String nombreDeUsuario){
         JButton boton = new JButton();
+        botonesNombresUsuarios = new ArrayList<JButton>();
+        boton.setBackground(Color.WHITE);
+        boton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
+        boton.setFont(fuenteTexto);
+        boton.setHorizontalAlignment(SwingConstants.LEFT);
+        boton.setText(nombreDeUsuario);
+        botonesNombresUsuarios.add(boton);
+        panelIzquierdoPrincipal.add(boton);
+
+        ChatIndividual chat = new ChatIndividual(nombreDeUsuario);
+        chats = new ArrayList<ChatIndividual>();
+        chat.setPreferredSize(new Dimension(400, 0));
+        chats.add(chat);
+        panelPrincipal.add(chat, BorderLayout.CENTER);
+        panelPrincipal.revalidate();
+        panelPrincipal.repaint();
     }
+
+    public void mostrarJOption(String mensaje){
+        JOptionPane.showMessageDialog(null,mensaje);
+    }
+
     public static void main(String[] args) {
         ChatGrupal ventanaGrupal = new ChatGrupal();
+        ventanaGrupal.agregarUsuarios("Usuario1");
     }
 }

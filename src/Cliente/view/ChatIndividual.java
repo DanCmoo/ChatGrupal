@@ -8,6 +8,8 @@ public class ChatIndividual extends JPanel {
     private JPanel panelNorte, panelCentro, panelSur;
     private JLabel textoEscribir, textoUsuarioPrivado;
     private JTextField cajaMensaje;
+    private JTextArea areaMensaje;
+    private JScrollPane scrollPane;
     private JButton botonEnviar;
     private String nombre;
 
@@ -40,6 +42,15 @@ public class ChatIndividual extends JPanel {
         panelCentro = new JPanel();
         panelCentro.setBackground(Color.WHITE);
         panelCentro.setLayout(new BorderLayout());
+
+        areaMensaje = new JTextArea();
+        areaMensaje.setFont(fuenteTexto);
+        areaMensaje.setEditable(false);
+
+        scrollPane = new JScrollPane(areaMensaje);
+        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+        panelCentro.add(scrollPane, BorderLayout.CENTER);
 
         this.add(panelCentro, BorderLayout.CENTER);
 
@@ -77,6 +88,5 @@ public class ChatIndividual extends JPanel {
     public void borrarCampos(){
         this.cajaMensaje.setText("");
     }
-
 
 }
