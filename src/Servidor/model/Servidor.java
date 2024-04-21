@@ -13,9 +13,6 @@ public class Servidor {
     public Servidor(ServerSocket servidorComunicacion, ServerSocket servidorMensaje){
         this.servidorComunicacion=servidorComunicacion;
         this.servidorMensaje=servidorMensaje;
-        this.socketComunicacion = null;
-        this.socketMensaje = null;
-
     }
 
     public ServerSocket getServidorComunicacion() {

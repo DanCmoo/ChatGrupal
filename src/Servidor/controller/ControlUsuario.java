@@ -8,6 +8,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class ControlUsuario extends Thread{
     public static ArrayList<ControlUsuario> usuariosActivos = new ArrayList<ControlUsuario>();
@@ -85,7 +86,10 @@ public class ControlUsuario extends Thread{
             case 1:
                 mensaje=entrada.readUTF();
                 controlServidor.getVistaServidor().mostrarMensaje("mensaje recibido "+mensaje);
-                enviaMensaje(mensaje);
+                if(!verificaMensaje(mensaje)){
+                    enviaMensaje(mensaje);
+                }
+
                 break;
             case 2:
                 cantidadUsuarios=usuariosActivos.size();
@@ -96,15 +100,16 @@ public class ControlUsuario extends Thread{
             case 3:
                 nombreAmigo=entrada.readUTF();
                 mensaje=entrada.readUTF();
-                enviaMensaje(nombreAmigo,mensaje);
+                if(!verificaMensaje(mensaje)){
+                    enviaMensaje(nombreAmigo,mensaje);
+                }
                 break;
         }
     }
 
     private void enviaMensaje(String mensaje) {
         ControlUsuario usuario=null;
-        for(int i=0;i<usuariosActivos.size();i++)
-        {
+        for(int i=0;i<usuariosActivos.size();i++) {
             controlServidor.getVistaServidor().mostrarMensaje("MENSAJE DEVUELTO:"+mensaje);
             try {
                 usuario=usuariosActivos.get(i);
@@ -118,13 +123,10 @@ public class ControlUsuario extends Thread{
 
     private void enviaMensaje(String nombreAmigo,String mensaje) {
         ControlUsuario usuario=null;
-        for(int i=0;i<usuariosActivos.size();i++)
-        {
-            try
-            {
+        for(int i=0;i<usuariosActivos.size();i++) {
+            try {
                 usuario=usuariosActivos.get(i);
-                if(usuario.getUsuarioActual().getNombre().equals(nombreAmigo))
-                {
+                if(usuario.getUsuarioActual().getNombre().equals(nombreAmigo)) {
                     usuario.getSalidaMensaje().writeInt(3);//opcion de mensage amigo
                     usuario.getSalidaMensaje().writeUTF(this.usuarioActual.getNombre());
                     usuario.getSalidaMensaje().writeUTF(""+this.usuarioActual.getNombre()+" > "+mensaje);
@@ -133,6 +135,20 @@ public class ControlUsuario extends Thread{
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean verificaMensaje(String mensaje){
+        boolean encontrado = false;
+        String mensajeVerificar = mensaje.toLowerCase();
+        Iterator it = controlServidor.getPalabrasBaneadas().iterator();
+        while(it.hasNext()){
+            if(mensajeVerificar.contains((String) it.next())){
+                encontrado= true;
+                break;
+            }
+        }
+        return encontrado;
+
     }
 
     public Usuario getUsuarioActual() {

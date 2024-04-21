@@ -8,6 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
 
 public class ControlServidor {
     private Servidor servidor;
@@ -15,6 +18,7 @@ public class ControlServidor {
     private int puertoMensaje;
     private VistaServidor vistaServidor;
     private ConexionProperties conexionProperties;
+    private ArrayList<String> palabrasBaneadas;
 
     public ControlServidor(){
         vistaServidor= new VistaServidor(this,"Consola del servidor");
@@ -30,6 +34,7 @@ public class ControlServidor {
             conexionProperties.cargarDatosIniciales();
             puertoComunicacion = Integer.parseInt(conexionProperties.getDatosServidor().getProperty("servidor.puertoComunicacion"));
             puertoMensaje = Integer.parseInt(conexionProperties.getDatosServidor().getProperty("servidor.puertoMensaje"));
+            palabrasBaneadas =  new ArrayList<>(Arrays.asList(conexionProperties.getDatosServidor().getProperty("servidor.palabrasBaneadas").split(",")));
             vistaServidor.mostrarJOptionPane("Las propiedades han sido cargadas con exito");
         }catch (FileNotFoundException e) {
             vistaServidor.mostrarJOptionPane("El archivo no se ha encontrado");
@@ -42,12 +47,14 @@ public class ControlServidor {
         try {
             servidor = new Servidor(new ServerSocket(puertoComunicacion),new ServerSocket(puertoMensaje));
             servidor.setEscuchando(true);
-            vistaServidor.mostrarJOptionPane("SERVIDOR ACTIVADO");
+            vistaServidor.mostrarMensaje("SERVIDOR ACTIVADO");
             while (servidor.isEscuchando()){
                 try{
-                    vistaServidor.mostrarJOptionPane("ESPERANDO USUARIOS");
-                    servidor.setSocketComunicacion(servidor.getServidorComunicacion().accept());
-                    servidor.setSocketMensaje(servidor.getServidorMensaje().accept());
+                    vistaServidor.mostrarMensaje("ESPERANDO USUARIOS");
+                    Socket comunicacion = servidor.getServidorComunicacion().accept();
+                    Socket mensaje = servidor.getServidorMensaje().accept();
+                    servidor.setSocketComunicacion(comunicacion);
+                    servidor.setSocketMensaje(mensaje);
                 }catch (IOException ex2){
                     ex2.printStackTrace();
                 }
@@ -63,5 +70,9 @@ public class ControlServidor {
 
     public VistaServidor getVistaServidor() {
         return vistaServidor;
+    }
+
+    public ArrayList<String> getPalabrasBaneadas() {
+        return palabrasBaneadas;
     }
 }
