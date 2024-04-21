@@ -161,6 +161,5 @@ public class ChatGrupal extends JFrame {
 
     public static void main(String[] args) {
         ChatGrupal ventanaGrupal = new ChatGrupal();
-        ventanaGrupal.agregarUsuarios("Usuario1");
     }
 }

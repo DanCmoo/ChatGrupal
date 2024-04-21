@@ -6,7 +6,7 @@ import java.awt.*;
 
 public class ChatIndividual extends JPanel {
     private JPanel panelNorte, panelCentro, panelSur;
-    private JLabel textoEscribir, textoUsuarioPrivado;
+    private JLabel textoUsuarioPrivado;
     private JTextField cajaMensaje;
     private JTextArea areaMensaje;
     private JScrollPane scrollPane;
@@ -55,16 +55,9 @@ public class ChatIndividual extends JPanel {
         this.add(panelCentro, BorderLayout.CENTER);
 
         panelSur = new JPanel();
-        panelSur.setPreferredSize(new Dimension(0,90));
+        panelSur.setPreferredSize(new Dimension(0,50));
         panelSur.setLayout(new BorderLayout());
         panelSur.setBackground(Color.WHITE);
-
-        textoEscribir = new JLabel("  Escribe un mensaje");
-        textoEscribir.setPreferredSize(new Dimension(0,40));
-        textoEscribir.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-        textoEscribir.setFont(fuenteTexto);
-        textoEscribir.setForeground(Color.LIGHT_GRAY);
-        panelSur.add(textoEscribir, BorderLayout.NORTH);
 
         cajaMensaje = new JTextField();
         cajaMensaje.setPreferredSize(new Dimension(300,50));
