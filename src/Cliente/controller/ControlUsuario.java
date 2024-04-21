@@ -1,21 +1,21 @@
 package Cliente.controller;
 
+import Cliente.model.Usuario;
+
 import java.io.DataInputStream;
 import java.io.IOException;
 
 public class ControlUsuario extends Thread{
     private ControlCliente controlCliente;
     private DataInputStream entrada;
-    public ControlUsuario (DataInputStream entrada, ControlCliente controlCliente) throws IOException
-    {
+    private Usuario usuario;
+    public ControlUsuario (DataInputStream entrada, ControlCliente controlCliente) throws IOException {
         this.entrada=entrada;
         this.controlCliente=controlCliente;
     }
-    public void run()
-    {
+    public void run() {
 
-        while(true)
-        {
+        while(true) {
             try{
                 acciones();
             }
@@ -31,22 +31,22 @@ public class ControlUsuario extends Thread{
         String mensaje="",nombreAmigo="";
         int opcion=0;
         opcion=entrada.readInt();
-        switch(opcion)
-        {
-            case 1://mensage enviado
+        switch(opcion) {
+            case 1:
                 mensaje=entrada.readUTF();
                 //System.out.println("ECO del servidor:"+mensaje);
                         //.mostrarMsg(mensaje);
+                controlCliente.mensaje(mensaje);
                 break;
-            case 2://se agrega
+            case 2:
                 mensaje=entrada.readUTF();
-                //vcli.agregarUser(mensaje);
+                controlCliente.agregarUsuario(mensaje);
                 break;
-            case 3://mensage de amigo
+            case 3:
                 nombreAmigo=entrada.readUTF();
                 mensaje=entrada.readUTF();
                 //vcli.mensageAmigo(amigo,menser);
-                //System.out.println("ECO del servidor:"+mensaje);
+                controlCliente.mensaje(mensaje,nombreAmigo);
                 break;
         }
 

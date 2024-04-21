@@ -36,7 +36,11 @@ public class ControlUsuario extends Thread{
             entrada = new DataInputStream(socketComunicacion.getInputStream());
             salidaComunicacion = new DataOutputStream((socketComunicacion.getOutputStream()));
             salidaMensaje = new DataOutputStream(socketMensaje.getOutputStream());
-            usuarioActual.setNombre(entrada.readUTF());
+            String nombreUsuario = entrada.readUTF();
+            while(verificarNombre(nombreUsuario)){
+                nombreUsuario = entrada.readUTF();
+            }
+            usuarioActual.setNombre(nombreUsuario);
             enviaUsuariosActivos();
 
             while (true){
@@ -149,6 +153,21 @@ public class ControlUsuario extends Thread{
         }
         return encontrado;
 
+    }
+
+    public boolean verificarNombre(String nombre){
+        boolean valor=false;
+        Iterator it = usuariosActivos.iterator();
+        while (it.hasNext()){
+            ControlUsuario actual = (ControlUsuario) it.next();
+            if(nombre.equals(actual.getUsuarioActual().getNombre())){
+                valor = true;
+                break;
+
+            }
+        }
+
+        return valor;
     }
 
     public Usuario getUsuarioActual() {

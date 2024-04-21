@@ -1,21 +1,18 @@
 package Cliente.controller;
 
-import Cliente.view.ChatGrupal;
+import Cliente.view.Chat;
 
 import Cliente.model.Cliente;
 import Servidor.model.conexion.ConexionProperties;
 
 import java.io.*;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Properties;
 
 public class ControlCliente {
     private DataInputStream entradaComunicacion;
     private DataOutputStream salida;
     private DataInputStream entradaMensaje;
-    private ChatGrupal vistaChatGrupal;
+    private Chat vistaChat;
     private Cliente cliente;
     private int puertoComunicacion;
     private int puertoMensaje;
@@ -24,7 +21,7 @@ public class ControlCliente {
 
 
     public ControlCliente() {
-        vistaChatGrupal = new ChatGrupal();
+        vistaChat = new Chat();
         cargarDatos();
         conexion();
 
@@ -32,16 +29,16 @@ public class ControlCliente {
 
     public void cargarDatos() {
         try {
-            conexionProperties = new ConexionProperties(vistaChatGrupal.pedirArchivo("Archivo de propiedades del servidor", "properties"));
+            conexionProperties = new ConexionProperties(vistaChat.pedirArchivo("Archivo de propiedades del servidor", "properties"));
             conexionProperties.cargarDatosIniciales();
             ipServidor = conexionProperties.getDatosServidor().getProperty("cliente.ipServidor");
             puertoComunicacion = Integer.parseInt(conexionProperties.getDatosServidor().getProperty("cliente.puertoComunicacion"));
             puertoMensaje = Integer.parseInt(conexionProperties.getDatosServidor().getProperty("cliente.puertoMensaje"));
-            vistaChatGrupal.mostrarJOptionPane("Las propiedades han sido cargadas con exito");
+            vistaChat.mostrarJOptionPane("Las propiedades han sido cargadas con exito");
         } catch (FileNotFoundException e) {
-            vistaChatGrupal.mostrarJOptionPane("El archivo no se ha encontrado");
+            vistaChat.mostrarJOptionPane("El archivo no se ha encontrado");
         } catch (IOException e) {
-            vistaChatGrupal.mostrarJOptionPane("El archivo no se ha leído correctamente");
+            vistaChat.mostrarJOptionPane("El archivo no se ha leído correctamente");
         }
     }
 
@@ -52,16 +49,45 @@ public class ControlCliente {
             entradaComunicacion = new DataInputStream(cliente.getSocketComunication().getInputStream());
             salida = new DataOutputStream(cliente.getSocketComunication().getOutputStream());
             entradaMensaje = new DataInputStream(cliente.getSocketMensaje().getInputStream());
-            String nomCliente = vistaChatGrupal.pedirNombreUsusario("Introducir Nick :");
+            String nomCliente = vistaChat.pedirNombreUsusario("Introducir Nick :");
             //vent.setNombreUser(nomCliente);
             //salida.writeUTF(nomCliente);
-            ControlUsuario usuario=new ControlUsuario(entradaMensaje,this);
+            ControlUsuario usuario = new ControlUsuario(entradaMensaje, this);
+            usuario.start();
 
         } catch (IOException e) {
-            vistaChatGrupal.mostrarJOptionPane("\tEl servidor no esta levantado");
+            vistaChat.mostrarJOptionPane("\tEl servidor no esta levantado");
         }
 
 
     }
 
+    public boolean verificarNombre(String nombre) {
+        boolean valor = false;
+        return valor;
+    }
+
+    public void mensaje(String mensaje) {
+        try {
+            salida.writeInt(1);
+            salida.writeUTF(mensaje);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void mensaje(String mensaje, String nombreAmigo) {
+        try {
+            salida.writeInt(3);
+            salida.writeUTF(nombreAmigo);
+            salida.writeUTF(mensaje);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void agregarUsuario(String nombre) {
+        // Metodo de la vista para agregar
+    }
 }

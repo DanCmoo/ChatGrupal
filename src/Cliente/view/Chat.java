@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class ChatGrupal extends JFrame {
+public class Chat extends JFrame {
     private JPanel panelPrincipal, panelIzquierdoPrincipal;
     private JScrollPane scrollPane ;
     private JMenuBar barraMenu;
@@ -18,7 +18,7 @@ public class ChatGrupal extends JFrame {
     private ArrayList<ChatIndividual> chats;
     Font fuenteTexto = new Font("FixedSys", Font.BOLD, 15);
 
-    public ChatGrupal(){
+    public Chat(){
         super("Chat");
         this.setSize(800,600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -179,6 +179,6 @@ public class ChatGrupal extends JFrame {
     }
 
     public static void main(String[] args) {
-        ChatGrupal ventanaGrupal = new ChatGrupal();
+        Chat ventanaGrupal = new Chat();
     }
 }
