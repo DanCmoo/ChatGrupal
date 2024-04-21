@@ -9,9 +9,11 @@ public class ChatIndividual extends JPanel {
     private JLabel textoEscribir, textoUsuarioPrivado;
     private JTextField cajaMensaje;
     private JButton botonEnviar;
+    private String nombre;
 
 
-    public ChatIndividual() {
+    public ChatIndividual(String name) {
+        this.nombre = name;
         this.inicializar();
     }
 
@@ -27,7 +29,7 @@ public class ChatIndividual extends JPanel {
         panelNorte.setLayout(new BorderLayout());
         panelNorte.setBackground(new Color(7,94,84));
 
-        textoUsuarioPrivado = new JLabel("Sergio");
+        textoUsuarioPrivado = new JLabel(nombre);
         textoUsuarioPrivado.setFont(new Font("FixedSys", Font.BOLD, 20));
         textoUsuarioPrivado.setForeground(Color.WHITE);
         textoUsuarioPrivado.setBorder(new EmptyBorder(borde, borde+15, borde, borde));

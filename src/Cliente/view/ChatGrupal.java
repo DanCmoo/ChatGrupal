@@ -8,10 +8,11 @@ public class ChatGrupal extends JFrame {
     private JPanel panelPrincipal, panelIzquierdoPrincipal;
     private JScrollPane scrollPane ;
     private JMenuBar barraMenu;
-    private JMenu menuAcercaDe, menuAyuda;
-    private JMenuItem itemAcercaDe, itemAyuda;
+    private JMenu menuAcercaDe;
+    private JMenuItem itemAcercaDe;
     private ChatIndividual panelchat;
     private ArrayList<JButton> botonesNombresUsuarios;
+    private ArrayList<ChatIndividual> chats;
 
     public ChatGrupal(){
         super("Chat");
@@ -46,21 +47,6 @@ public class ChatGrupal extends JFrame {
 
         barraMenu.add(menuAcercaDe,0);
 
-        menuAyuda = new JMenu("Ayuda");
-        menuAyuda.setBackground(Color.WHITE);
-        menuAyuda.setBorder(BorderFactory.createLineBorder(new Color(7, 94, 84), 2));
-        menuAyuda.setFont(fuenteTexto);
-        menuAyuda.setForeground(new Color(7, 94, 84));
-
-        itemAyuda = new JMenuItem("Ayuda");
-        itemAyuda.setBorder(BorderFactory.createLineBorder(new Color(7, 94, 84), 2));
-        itemAyuda.setFont(fuenteTexto);
-        itemAyuda.setForeground(new Color(7, 94, 84));
-        itemAyuda.setActionCommand("AYUDA");
-        menuAyuda.add(itemAyuda);
-
-        barraMenu.add(menuAyuda,0);
-
         this.panelPrincipal.add(barraMenu, BorderLayout.NORTH);
 
         panelIzquierdoPrincipal = new JPanel();
@@ -71,7 +57,7 @@ public class ChatGrupal extends JFrame {
         scrollPane.setPreferredSize(new Dimension(400, 0));
         panelPrincipal.add(scrollPane, BorderLayout.WEST);
 
-        panelchat = new ChatIndividual();
+        panelchat = new ChatIndividual("Chat grupal");
         panelchat.setPreferredSize(new Dimension(400,0));
         panelPrincipal.add(panelchat, BorderLayout.CENTER);
     }
