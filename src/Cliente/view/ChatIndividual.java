@@ -4,22 +4,15 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
-public class ChatIndividual extends JFrame {
-    private JPanel panelPrincipal, panelNorte, panelCentro, panelSur;
+public class ChatIndividual extends JPanel {
+    private JPanel panelNorte, panelCentro, panelSur;
     private JLabel textoEscribir, textoUsuarioPrivado;
-    private JTextArea areaMensajes;
     private JTextField cajaMensaje;
-    private JScrollPane scrollPane;
     private JButton botonEnviar;
 
 
     public ChatIndividual() {
-        super("Chat Privado");
-        this.setSize(800,600);
-        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.inicializar();
-
-        this.setVisible(true);
     }
 
     public void inicializar(){
@@ -27,9 +20,7 @@ public class ChatIndividual extends JFrame {
         Font fuenteTexto = new Font("FixedSys", Font.BOLD, 15);
         int borde = 5;
 
-        panelPrincipal = new JPanel();
-        panelPrincipal.setLayout(new BorderLayout());
-        this.getContentPane().add(panelPrincipal);
+        this.setLayout(new BorderLayout());
 
         panelNorte = new JPanel();
         panelNorte.setPreferredSize(new Dimension(0, 60));
@@ -42,18 +33,13 @@ public class ChatIndividual extends JFrame {
         textoUsuarioPrivado.setBorder(new EmptyBorder(borde, borde+15, borde, borde));
         panelNorte.add(textoUsuarioPrivado, BorderLayout.WEST);
 
-        panelPrincipal.add(panelNorte, BorderLayout.NORTH);
+        this.add(panelNorte, BorderLayout.NORTH);
 
         panelCentro = new JPanel();
         panelCentro.setBackground(Color.WHITE);
+        panelCentro.setLayout(new BorderLayout());
 
-        areaMensajes = new JTextArea();
-        areaMensajes.setEditable(false);
-        panelCentro.add(areaMensajes);
-
-        scrollPane = new JScrollPane(panelCentro);
-        scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        panelPrincipal.add(scrollPane, BorderLayout.CENTER);
+        this.add(panelCentro, BorderLayout.CENTER);
 
         panelSur = new JPanel();
         panelSur.setPreferredSize(new Dimension(0,90));
@@ -68,13 +54,13 @@ public class ChatIndividual extends JFrame {
         panelSur.add(textoEscribir, BorderLayout.NORTH);
 
         cajaMensaje = new JTextField();
-        cajaMensaje.setPreferredSize(new Dimension(900,50));
+        cajaMensaje.setPreferredSize(new Dimension(350,50));
         cajaMensaje.setFont(fuenteTexto);
         cajaMensaje.setBorder(new EmptyBorder(borde, borde, borde, borde));
         panelSur.add(cajaMensaje, BorderLayout.CENTER);
 
         botonEnviar = new JButton("Enviar");
-        botonEnviar.setPreferredSize(new Dimension(100,50));
+        botonEnviar.setPreferredSize(new Dimension(50,50));
         botonEnviar.setActionCommand("ENVIAR");
         botonEnviar.setFont(fuenteTexto);
         botonEnviar.setForeground(new Color(7,94,84));
@@ -83,14 +69,12 @@ public class ChatIndividual extends JFrame {
 
         panelSur.add(botonEnviar, BorderLayout.EAST);
 
-        panelPrincipal.add(panelSur, BorderLayout.SOUTH);
+        this.add(panelSur, BorderLayout.SOUTH);
     }
 
-    public void agregarMensaje(String mensaje){
-        this.areaMensajes.append(mensaje + "\n");
+    public void borrarCampos(){
+        this.cajaMensaje.setText("");
     }
 
-    public static void main(String[] args) {
-        ChatIndividual ventanaPrivada = new ChatIndividual();
-    }
+
 }
