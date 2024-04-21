@@ -11,6 +11,7 @@ public class VistaServidor extends JFrame{
     public JScrollPane panelScroll;
     public JTextArea cajaTexto;
     private ControlServidor controlServidor;
+
     public VistaServidor(ControlServidor c,String title){
         super(title);
         this.controlServidor = c;
