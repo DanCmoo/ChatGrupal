@@ -65,16 +65,21 @@ public class ChatGrupal extends JFrame {
 
         panelchat = new ChatIndividual("Chat grupal");
         panelchat.setPreferredSize(new Dimension(400,0));
+        panelchat.setVisible(false);
         panelPrincipal.add(panelchat, BorderLayout.CENTER);
     }
 
     public void agregarUsuarios(String nombreDeUsuario){
         JButton boton = new JButton();
+        boton.setPreferredSize(new Dimension(400,50));
         boton.setBackground(Color.WHITE);
         boton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         boton.setFont(fuenteTexto);
         boton.setHorizontalAlignment(SwingConstants.LEFT);
         boton.setText(nombreDeUsuario);
+
+        boton.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
+
         botonesNombresUsuarios.add(boton);
         panelIzquierdoPrincipal.add(boton);
 
@@ -180,5 +185,6 @@ public class ChatGrupal extends JFrame {
 
     public static void main(String[] args) {
         ChatGrupal ventanaGrupal = new ChatGrupal();
+        ventanaGrupal.agregarUsuarios("Usuario1");
     }
 }
