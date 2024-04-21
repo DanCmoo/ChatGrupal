@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="CARGA ALEJANDRO 2.4">
+    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="CARGA ALEJANDRO 2.3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cliente/view/ChatGrupal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/view/ChatGrupal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,15 +148,7 @@
       <option name="project" value="LOCAL" />
       <updated>1713720729127</updated>
     </task>
-    <task id="LOCAL-00004" summary="CARGA ALEJANDRO 2.4">
-      <option name="closed" value="true" />
-      <created>1713721400187</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1713721400187</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -163,7 +156,6 @@
     <MESSAGE value="CARGA ALEJANDRO 2.1" />
     <MESSAGE value="CARGA ALEJANDRO 2.2" />
     <MESSAGE value="CARGA ALEJANDRO 2.3" />
-    <MESSAGE value="CARGA ALEJANDRO 2.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="CARGA ALEJANDRO 2.4" />
+    <option name="LAST_COMMIT_MESSAGE" value="CARGA ALEJANDRO 2.3" />
   </component>
 </project>

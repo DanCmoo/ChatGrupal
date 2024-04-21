@@ -5,14 +5,27 @@ import java.io.DataOutputStream;
 import java.net.Socket;
 
 public class Cliente {
-    private DataInputStream entrada = null;
-    private DataOutputStream salida = null;
-    private DataInputStream entrada2 = null;
-    private Socket comunication = null;// Para realizar la comunicación
-    private Socket comunication2 = null; //Para recibir los mensajes
+    private Socket socketComunication ;// Para realizar la comunicación
+    private Socket socketMensaje ; //Para recibir los mensajes
 
-    public Cliente(){
-
+    public Cliente(Socket comunication, Socket mensaje){
+        this.socketComunication = comunication ;
+        this.socketMensaje = mensaje ;
     }
 
+    public Socket getSocketComunication() {
+        return socketComunication;
+    }
+
+    public void setSocketComunication(Socket socketComunication) {
+        this.socketComunication = socketComunication;
+    }
+
+    public Socket getSocketMensaje() {
+        return socketMensaje;
+    }
+
+    public void setSocketMensaje(Socket socketMensaje) {
+        this.socketMensaje = socketMensaje;
+    }
 }

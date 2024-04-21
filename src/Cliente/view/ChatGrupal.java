@@ -1,7 +1,10 @@
 package Cliente.view;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ChatGrupal extends JFrame {
@@ -82,6 +85,22 @@ public class ChatGrupal extends JFrame {
         panelPrincipal.revalidate();
         panelPrincipal.repaint();
     }
+    public File pedirArchivo(String textoCaracteristicas, String textoFiltro) throws IOException {
+        JFileChooser seleccionArchivo = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(textoCaracteristicas, textoFiltro);
+        seleccionArchivo.setFileFilter(filtro);
+        seleccionArchivo.showOpenDialog(null);
+        return seleccionArchivo.getSelectedFile();
+    }
+
+    public void mostrarJOptionPane(String m) {
+        JOptionPane.showMessageDialog(null, m);
+    }
+    public String pedirNombreUsusario(String texto){
+        return JOptionPane.showInputDialog(null,texto);
+
+    }
+
 
     public void mostrarJOption(String mensaje){
         JOptionPane.showMessageDialog(null,mensaje);
