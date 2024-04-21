@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="Carga servidor sin bonus" />
+    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="Carga servidor sin bonus">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,24 +33,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ChatIndividual.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.VistaServidor.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Universidad XD/Programas/Chat4&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ChatIndividual.executor": "Run",
+    "Application.Cliente.Main.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.VistaServidor.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Universidad XD/Programas/Chat4"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Servidor.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ChatGrupal">
+  <component name="RunManager" selected="Application.Cliente.Main">
     <configuration name="ChatGrupal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Cliente.view.ChatGrupal" />
       <module name="Taller 4" />
@@ -68,6 +71,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Cliente.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Cliente.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cliente.Main" />
+      <module name="Taller 4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cliente.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -103,8 +119,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ChatGrupal" />
+        <item itemvalue="Application.Cliente.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ChatGrupal" />
         <item itemvalue="Application.ChatIndividual" />
         <item itemvalue="Application.VistaServidor" />
       </list>
