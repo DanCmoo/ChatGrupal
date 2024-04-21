@@ -1,4 +1,6 @@
 package Cliente.view;
 
-public class ChatGrupal {
+import javax.swing.*;
+
+public class ChatGrupal extends JFrame {
 }
