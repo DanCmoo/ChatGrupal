@@ -69,6 +69,8 @@ public class ChatIndividual extends JPanel {
         botonEnviar.setPreferredSize(new Dimension(100,50));
         botonEnviar.setActionCommand("ENVIAR");
         botonEnviar.setFont(fuenteTexto);
+        botonEnviar.setName(nombre);
+        botonEnviar.setActionCommand("Enviar_Mensaje");
         botonEnviar.setForeground(new Color(7,94,84));
         botonEnviar.setBorder(BorderFactory.createLineBorder(new Color(7,94,84),3));
         botonEnviar.setBackground(Color.WHITE);
@@ -78,8 +80,90 @@ public class ChatIndividual extends JPanel {
         this.add(panelSur, BorderLayout.SOUTH);
     }
 
+    public String getNombre(){
+        return nombre;
+    }
+    public void mostrarMensaje(String mensaje){
+        areaMensaje.append(mensaje+"\n");
+    }
+
     public void borrarCampos(){
         this.cajaMensaje.setText("");
     }
 
+    public JPanel getPanelNorte() {
+        return panelNorte;
+    }
+
+    public void setPanelNorte(JPanel panelNorte) {
+        this.panelNorte = panelNorte;
+    }
+
+    public JPanel getPanelCentro() {
+        return panelCentro;
+    }
+
+    public void setPanelCentro(JPanel panelCentro) {
+        this.panelCentro = panelCentro;
+    }
+
+    public JPanel getPanelSur() {
+        return panelSur;
+    }
+
+    public void setPanelSur(JPanel panelSur) {
+        this.panelSur = panelSur;
+    }
+
+    public JLabel getTextoUsuarioPrivado() {
+        return textoUsuarioPrivado;
+    }
+
+    public void setTextoUsuarioPrivado(JLabel textoUsuarioPrivado) {
+        this.textoUsuarioPrivado = textoUsuarioPrivado;
+    }
+
+    public JTextField getCajaMensaje() {
+        return cajaMensaje;
+    }
+
+    public void setCajaMensaje(JTextField cajaMensaje) {
+        this.cajaMensaje = cajaMensaje;
+    }
+
+    public JTextArea getAreaMensaje() {
+        return areaMensaje;
+    }
+
+    public void setAreaMensaje(JTextArea areaMensaje) {
+        this.areaMensaje = areaMensaje;
+    }
+
+    public JScrollPane getScrollPane() {
+        return scrollPane;
+    }
+
+    public void setScrollPane(JScrollPane scrollPane) {
+        this.scrollPane = scrollPane;
+    }
+
+    public JButton getBotonEnviar() {
+        return botonEnviar;
+    }
+
+    public void setBotonEnviar(JButton botonEnviar) {
+        this.botonEnviar = botonEnviar;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void redimensionar() {
+        panelNorte.setPreferredSize(new Dimension(0, 60));
+        panelSur.setPreferredSize(new Dimension(0,50));
+        cajaMensaje.setPreferredSize(new Dimension(300,50));
+        botonEnviar.setPreferredSize(new Dimension(100,50));
+
+    }
 }

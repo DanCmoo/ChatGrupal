@@ -25,7 +25,7 @@ public class ControlUsuario extends Thread{
         this.socketComunicacion = socketComunicacion;
         this.socketMensaje = socketMensaje;
         usuarioActual = new Usuario();
-        usuariosActivos.add(this);
+
         this.controlServidor.getVistaServidor().mostrarMensaje("Cliente agregado"+ this);
 
     }
@@ -38,10 +38,15 @@ public class ControlUsuario extends Thread{
             salidaMensaje = new DataOutputStream(socketMensaje.getOutputStream());
             String nombreUsuario = entrada.readUTF();
             while(verificarNombre(nombreUsuario)){
+                salidaComunicacion.writeBoolean(true);
                 nombreUsuario = entrada.readUTF();
             }
+            salidaComunicacion.writeBoolean(false);
             usuarioActual.setNombre(nombreUsuario);
+            usuariosActivos.add(this);
+            controlServidor.getVistaServidor().mostrarMensaje("El usuario "+nombreUsuario+" se ha conecatado");
             enviaUsuariosActivos();
+            recibirUsuariosActivos();
 
             while (true){
                 try{
@@ -81,6 +86,22 @@ public class ControlUsuario extends Thread{
             
         }
     }
+    public void recibirUsuariosActivos(){
+        ControlUsuario usuario = null;
+        for (int i = 0; i < usuariosActivos.size(); i++) {
+            try{
+                usuario = usuariosActivos.get(i);
+                if(usuario!=this){
+                    this.getSalidaMensaje().writeInt(2);
+                    this.getSalidaMensaje().writeUTF(usuario.getUsuarioActual().getNombre());
+                }
+            }catch (IOException ex){
+                ex.printStackTrace();
+            }
+
+        }
+
+    }
 
     public void acciones() throws IOException{
         int opcion=0,cantidadUsuarios=0;
@@ -89,7 +110,6 @@ public class ControlUsuario extends Thread{
         switch (opcion){
             case 1:
                 mensaje=entrada.readUTF();
-                controlServidor.getVistaServidor().mostrarMensaje("mensaje recibido "+mensaje);
                 if(!verificaMensaje(mensaje)){
                     enviaMensaje(mensaje);
                 }
@@ -97,17 +117,34 @@ public class ControlUsuario extends Thread{
                 break;
             case 2:
                 cantidadUsuarios=usuariosActivos.size();
-                salidaComunicacion.writeInt(cantidadUsuarios);
+                salidaComunicacion.writeInt(2);
                 for(int i=0;i<cantidadUsuarios;i++)
                     salidaComunicacion.writeUTF(usuariosActivos.get(i).getUsuarioActual().getNombre());
                 break;
             case 3:
+                String nombre = entrada.readUTF();
                 nombreAmigo=entrada.readUTF();
                 mensaje=entrada.readUTF();
                 if(!verificaMensaje(mensaje)){
-                    enviaMensaje(nombreAmigo,mensaje);
+                    enviaMensaje(nombre,nombreAmigo,mensaje);
                 }
                 break;
+            case 4:
+                nombreAmigo = entrada.readUTF();
+                ControlUsuario usuario = null;
+                for (int i = 0; i < usuariosActivos.size(); i++) {
+                    try{
+                        usuario = usuariosActivos.get(i);
+                        if(usuario==this){
+                            usuario.getSalidaMensaje().writeInt(2);
+                            usuario.getSalidaMensaje().writeUTF(nombreAmigo);
+                        }
+                    }catch (IOException ex){
+                        ex.printStackTrace();
+                    }
+
+                }
+
         }
     }
 
@@ -118,22 +155,29 @@ public class ControlUsuario extends Thread{
             try {
                 usuario=usuariosActivos.get(i);
                 usuario.getSalidaMensaje().writeInt(1);
-                usuario.getSalidaMensaje().writeUTF(""+this.usuarioActual.getNombre()+" > "+ mensaje);
+                usuario.getSalidaMensaje().writeUTF(usuarioActual.getNombre()+" >> "+ mensaje);
             }catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void enviaMensaje(String nombreAmigo,String mensaje) {
+    private void enviaMensaje(String nombre,String nombreAmigo,String mensaje) {
         ControlUsuario usuario=null;
         for(int i=0;i<usuariosActivos.size();i++) {
             try {
+                controlServidor.getVistaServidor().mostrarMensaje("MENSAJE DEVUELTO "+mensaje);
                 usuario=usuariosActivos.get(i);
                 if(usuario.getUsuarioActual().getNombre().equals(nombreAmigo)) {
                     usuario.getSalidaMensaje().writeInt(3);//opcion de mensage amigo
-                    usuario.getSalidaMensaje().writeUTF(this.usuarioActual.getNombre());
-                    usuario.getSalidaMensaje().writeUTF(""+this.usuarioActual.getNombre()+" > "+mensaje);
+                    usuario.getSalidaMensaje().writeUTF(usuarioActual.getNombre());
+                    usuario.getSalidaMensaje().writeUTF(usuarioActual.getNombre()+" >> "+mensaje);
+                }
+                if(usuario.getUsuarioActual().getNombre().equals(nombre)){
+                    usuario.getSalidaMensaje().writeInt(3);//opcion de mensage amigo
+                    usuario.getSalidaMensaje().writeUTF(usuarioActual.getNombre());
+                    usuario.getSalidaMensaje().writeUTF(usuarioActual.getNombre()+" >> "+mensaje);
+
                 }
             }catch (IOException e) {
                 e.printStackTrace();

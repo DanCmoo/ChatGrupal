@@ -18,8 +18,8 @@ public class Chat extends JFrame {
     private ArrayList<ChatIndividual> chats;
     Font fuenteTexto = new Font("FixedSys", Font.BOLD, 15);
 
-    public Chat(){
-        super("Chat");
+    public Chat(String nombre){
+        super("Usuario :" + nombre);
         this.setSize(800,600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.inicializar();
@@ -63,9 +63,6 @@ public class Chat extends JFrame {
         scrollPane.setPreferredSize(new Dimension(400, 0));
         panelPrincipal.add(scrollPane, BorderLayout.WEST);
 
-        panelchat = new ChatIndividual("Chat grupal");
-        panelchat.setPreferredSize(new Dimension(400,0));
-        panelPrincipal.add(panelchat, BorderLayout.CENTER);
     }
 
     public void agregarUsuarios(String nombreDeUsuario){
@@ -73,8 +70,10 @@ public class Chat extends JFrame {
         boton.setBackground(Color.WHITE);
         boton.setBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY, 1));
         boton.setFont(fuenteTexto);
-        boton.setHorizontalAlignment(SwingConstants.LEFT);
+        boton.setHorizontalAlignment(SwingConstants.CENTER);
         boton.setText(nombreDeUsuario);
+        boton.setMaximumSize(new Dimension(Integer.MAX_VALUE,50));
+        boton.setActionCommand("Abrir_Chat");
         botonesNombresUsuarios.add(boton);
         panelIzquierdoPrincipal.add(boton);
 
@@ -82,15 +81,8 @@ public class Chat extends JFrame {
         chat.setPreferredSize(new Dimension(400, 0));
         chats.add(chat);
         panelPrincipal.add(chat, BorderLayout.CENTER);
-        panelPrincipal.revalidate();
-        panelPrincipal.repaint();
-    }
-    public File pedirArchivo(String textoCaracteristicas, String textoFiltro) throws IOException {
-        JFileChooser seleccionArchivo = new JFileChooser();
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter(textoCaracteristicas, textoFiltro);
-        seleccionArchivo.setFileFilter(filtro);
-        seleccionArchivo.showOpenDialog(null);
-        return seleccionArchivo.getSelectedFile();
+        this.revalidate();
+        this.repaint();
     }
 
     public void mostrarJOptionPane(String m) {
@@ -178,7 +170,4 @@ public class Chat extends JFrame {
         this.chats = chats;
     }
 
-    public static void main(String[] args) {
-        Chat ventanaGrupal = new Chat();
-    }
 }
