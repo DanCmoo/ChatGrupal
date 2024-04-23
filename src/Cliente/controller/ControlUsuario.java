@@ -56,6 +56,10 @@ public class ControlUsuario{
                 mensaje=entrada.readUTF();
                 controlCliente.recibirMensaje(mensaje,nombreAmigo);
                 break;
+            case 4:
+                nombreAmigo = entrada.readUTF();
+                controlCliente.eliminarUsuario(nombreAmigo);
+
 
         }
 

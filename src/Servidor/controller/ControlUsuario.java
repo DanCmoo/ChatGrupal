@@ -58,6 +58,7 @@ public class ControlUsuario extends Thread{
             }
             controlServidor.getVistaServidor().mostrarMensaje("Se removió un usuario");
             usuariosActivos.remove(this);
+            actualizaUsuariosActivos();
             try{
                 socketComunicacion.close();
             } catch (Exception e) {
@@ -68,6 +69,21 @@ public class ControlUsuario extends Thread{
 
         }catch (IOException ex){
             ex.printStackTrace();
+        }
+    }
+
+    private void actualizaUsuariosActivos() {
+        ControlUsuario usuario = null;
+        for (int i = 0; i < usuariosActivos.size(); i++) {
+            try{
+                usuario = usuariosActivos.get(i);
+                usuario.getSalidaMensaje().writeInt(4);
+                usuario.getSalidaMensaje().writeUTF(this.usuarioActual.getNombre());
+
+            }catch (IOException ex){
+                ex.printStackTrace();
+            }
+
         }
     }
 

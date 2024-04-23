@@ -8,6 +8,7 @@ import Cliente.view.Vista;
 import Servidor.model.conexion.ConexionProperties;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
@@ -191,17 +192,42 @@ public class ControlCliente implements ActionListener {
 
         }else{
             Iterator it = vistaChat.getChats().iterator();
-            int i = 0;
+
             while (it.hasNext()){
                 ChatIndividual chatActual = (ChatIndividual) it.next();
                 if(nombre.equals(chatActual.getNombre())){
-                    vistaChat.getChats().get(i).setVisible(true);
-                } else{
-                    vistaChat.getChats().get(i).setVisible(false);
+                    buscarChat(chatActual.getNombre()).setVisible(true);
+                } else {
+                    buscarChat(chatActual.getNombre()).setVisible(false);
                 }
-                i++;
             }
         }
+
+
+    }
+
+    public void eliminarUsuario(String nombreAmigo) {
+        ChatIndividual chatBorrar = buscarChat(nombreAmigo);
+        JButton botonBorrar = null;
+        Iterator it = vistaChat.getBotonesNombresUsuarios().iterator();
+        while (it.hasNext()){
+            JButton boton = (JButton) it.next();
+            if(boton.getText().equals(nombreAmigo)){
+                botonBorrar = boton;
+            }
+        }
+        vistaChat.getChats().get(0).setVisible(true);
+        vistaChat.getChats().remove(chatBorrar);
+        vistaChat.getBotonesNombresUsuarios().remove(botonBorrar);
+        Component[] components = vistaChat.getPanelIzquierdoPrincipal().getComponents();
+        vistaChat.getPanelIzquierdoPrincipal().removeAll();
+        for (Component comp : components){
+            if(comp!=botonBorrar){
+                vistaChat.getPanelIzquierdoPrincipal().add(comp);
+            }
+        }
+        vistaChat.revalidate();
+        vistaChat.repaint();
 
 
     }

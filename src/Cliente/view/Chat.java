@@ -85,19 +85,6 @@ public class Chat extends JFrame {
         this.repaint();
     }
 
-    public void mostrarJOptionPane(String m) {
-        JOptionPane.showMessageDialog(null, m);
-    }
-    public String pedirNombreUsusario(String texto){
-        return JOptionPane.showInputDialog(null,texto);
-
-    }
-
-
-    public void mostrarJOption(String mensaje){
-        JOptionPane.showMessageDialog(null,mensaje);
-    }
-
     public JPanel getPanelPrincipal() {
         return panelPrincipal;
     }
