@@ -7,10 +7,9 @@
     <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="Carga cliente pseudo terminado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente/controller/ControlCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/controller/ControlCliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cliente/controller/ControlUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/controller/ControlUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente/view/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/view/Chat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente/view/ChatIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/view/ChatIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Servidor/controller/ControlUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Servidor/controller/ControlUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cliente/view/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/view/Vista.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +26,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Alejandro-049"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/DanCmoo/ChatGrupal.git",
+    "accountId": "cb572a90-0d14-45da-aed0-c5d36e9ef84b"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -38,24 +49,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ChatGrupal.executor": "Run",
-    "Application.ChatIndividual.executor": "Run",
-    "Application.Cliente.Main.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.VistaServidor.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Universidad XD/Programas/Taller 4",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ChatGrupal.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ChatIndividual.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Cliente.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.VistaServidor.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Universidad XD/Programas/Taller 4&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Servidor.model" />
@@ -179,5 +190,20 @@
     <MESSAGE value="CARGA ALEJANDRO 2.2" />
     <MESSAGE value="CARGA ALEJANDRO 2.3" />
     <option name="LAST_COMMIT_MESSAGE" value="CARGA ALEJANDRO 2.3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Cliente/view/Vista.java</url>
+          <line>29</line>
+          <properties class="Cliente.view.Vista" method="mostrarJOptionPane">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
