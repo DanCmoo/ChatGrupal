@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="Carga cliente pseudo terminado">
+    <list default="true" id="826d67bb-57a3-4d61-b910-f4eed3a1ddfd" name="Changes" comment="CARGA PROGRAMA CASI QUE TERMINADO PORQUE SOLO FALTA PROBARLO MAÑANA 24 DE ABRIL">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente/controller/ControlCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/controller/ControlCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Cliente/view/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/view/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cliente/view/ChatIndividual.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/view/ChatIndividual.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cliente/view/Vista.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cliente/view/Vista.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,18 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Alejandro-049"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Alejandro-049&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/DanCmoo/ChatGrupal.git",
-    "accountId": "cb572a90-0d14-45da-aed0-c5d36e9ef84b"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DanCmoo/ChatGrupal.git&quot;,
+    &quot;accountId&quot;: &quot;cb572a90-0d14-45da-aed0-c5d36e9ef84b&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -181,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713720729127</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="CARGA PROGRAMA CASI QUE TERMINADO PORQUE SOLO FALTA PROBARLO MAÑANA 24 DE ABRIL">
+      <option name="closed" value="true" />
+      <created>1713933465286</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713933465286</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,7 +195,8 @@
     <MESSAGE value="CARGA ALEJANDRO 2.1" />
     <MESSAGE value="CARGA ALEJANDRO 2.2" />
     <MESSAGE value="CARGA ALEJANDRO 2.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="CARGA ALEJANDRO 2.3" />
+    <MESSAGE value="CARGA PROGRAMA CASI QUE TERMINADO PORQUE SOLO FALTA PROBARLO MAÑANA 24 DE ABRIL" />
+    <option name="LAST_COMMIT_MESSAGE" value="CARGA PROGRAMA CASI QUE TERMINADO PORQUE SOLO FALTA PROBARLO MAÑANA 24 DE ABRIL" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

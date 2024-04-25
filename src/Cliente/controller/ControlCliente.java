@@ -29,6 +29,7 @@ public class ControlCliente implements ActionListener {
     private String ipServidor;
     private String chatActual;
     private ConexionProperties conexionProperties;
+    private boolean creditoMostrado = false;
 
 
     public ControlCliente() {
@@ -71,6 +72,7 @@ public class ControlCliente implements ActionListener {
             System.out.println(nombre);
             vistaChat = new Chat(nombre);
             agregarUsuario("Chat Grupal");
+            agregarUsuario("Julian");
             ControlUsuario usuario = new ControlUsuario(nombre,entradaMensaje,salida, this);
 
         } catch (IOException e) {
@@ -183,12 +185,12 @@ public class ControlCliente implements ActionListener {
                 buscarChat(botonPresionado.getName()).borrarCampos();
             }
         }
-        if (source instanceof JMenuItem) {
-            JMenuItem menuItemPressed = (JMenuItem) source;
-            String actionCommand = menuItemPressed.getActionCommand();
-            if ("CREDITOS".equals(actionCommand)) {
-                vista.mostrarJOptionPane(vista.autores());
-            }
+        JMenuItem menuItem = (JMenuItem) source;
+        if (menuItem.getActionCommand().equals("CREDITOS") && !creditoMostrado) {
+            vista.mostrarJOptionPane(vista.autores());
+            creditoMostrado = true;
+        } else if (menuItem.getActionCommand().equals("CREDITOS") && creditoMostrado) {
+            creditoMostrado = false;
         }
 
     }
