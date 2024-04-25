@@ -156,6 +156,7 @@ public class ControlCliente implements ActionListener {
         vistaChat.agregarUsuarios(nombre);
         vistaChat.getBotonesNombresUsuarios().get(vistaChat.getBotonesNombresUsuarios().size()-1).addActionListener(this);
         vistaChat.getChats().get(vistaChat.getChats().size()-1).getBotonEnviar().addActionListener(this);
+        vistaChat.getItemAcercaDe().addActionListener(this);
         vistaChat.revalidate();
         vistaChat.repaint();
     }
@@ -182,6 +183,13 @@ public class ControlCliente implements ActionListener {
                 buscarChat(botonPresionado.getName()).borrarCampos();
             }
         }
+        if (source instanceof JMenuItem) {
+            JMenuItem menuItemPressed = (JMenuItem) source;
+            String actionCommand = menuItemPressed.getActionCommand();
+            if ("CREDITOS".equals(actionCommand)) {
+                vista.mostrarJOptionPane(vista.autores());
+            }
+        }
 
     }
 
@@ -199,6 +207,7 @@ public class ControlCliente implements ActionListener {
                     buscarChat(chatActual.getNombre()).setVisible(true);
                 } else {
                     buscarChat(chatActual.getNombre()).setVisible(false);
+                    buscarChat(chatActual.getNombre()).borrarCampos();
                 }
             }
         }

@@ -22,6 +22,7 @@ public class Chat extends JFrame {
         super("Usuario :" + nombre);
         this.setSize(800,600);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setResizable(false);
         this.inicializar();
         this.setVisible(true);
     }
@@ -40,17 +41,18 @@ public class Chat extends JFrame {
         menuAcercaDe = new JMenu("Acerca de");
         menuAcercaDe.setBackground(Color.WHITE);
         menuAcercaDe.setBorder(BorderFactory.createLineBorder(new Color(7, 94, 84), 2));
+        menuAcercaDe.setActionCommand("ACERCADE");
         menuAcercaDe.setFont(fuenteTexto);
         menuAcercaDe.setForeground(new Color(7, 94, 84));
 
         itemAcercaDe = new JMenuItem("Créditos");
+        itemAcercaDe.setActionCommand("CREDITOS");
         itemAcercaDe.setBorder(BorderFactory.createLineBorder(new Color(7, 94, 84), 2));
         itemAcercaDe.setFont(fuenteTexto);
         itemAcercaDe.setForeground(new Color(7, 94, 84));
-        itemAcercaDe.setActionCommand("CREDITOS");
         menuAcercaDe.add(itemAcercaDe);
 
-        barraMenu.add(menuAcercaDe,0);
+        barraMenu.add(menuAcercaDe);
 
         this.panelPrincipal.add(barraMenu, BorderLayout.NORTH);
 
@@ -60,7 +62,7 @@ public class Chat extends JFrame {
 
         scrollPane = new JScrollPane(panelIzquierdoPrincipal);
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setPreferredSize(new Dimension(400, 0));
+        scrollPane.setPreferredSize(new Dimension(250, Integer.MAX_VALUE));
         panelPrincipal.add(scrollPane, BorderLayout.WEST);
 
     }
@@ -72,13 +74,13 @@ public class Chat extends JFrame {
         boton.setFont(fuenteTexto);
         boton.setHorizontalAlignment(SwingConstants.CENTER);
         boton.setText(nombreDeUsuario);
-        boton.setMaximumSize(new Dimension(Integer.MAX_VALUE,50));
+        boton.setMaximumSize(new Dimension(Integer.MAX_VALUE,70));
         boton.setActionCommand("Abrir_Chat");
         botonesNombresUsuarios.add(boton);
         panelIzquierdoPrincipal.add(boton);
 
         ChatIndividual chat = new ChatIndividual(nombreDeUsuario);
-        chat.setPreferredSize(new Dimension(400, 0));
+        chat.setPreferredSize(new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE));
         chats.add(chat);
         panelPrincipal.add(chat, BorderLayout.CENTER);
         this.revalidate();

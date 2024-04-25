@@ -27,7 +27,7 @@ public class ChatIndividual extends JPanel {
         this.setLayout(new BorderLayout());
 
         panelNorte = new JPanel();
-        panelNorte.setPreferredSize(new Dimension(0, 60));
+        panelNorte.setPreferredSize(new Dimension(Integer.MAX_VALUE, 60));
         panelNorte.setLayout(new BorderLayout());
         panelNorte.setBackground(new Color(7,94,84));
 
@@ -55,7 +55,7 @@ public class ChatIndividual extends JPanel {
         this.add(panelCentro, BorderLayout.CENTER);
 
         panelSur = new JPanel();
-        panelSur.setPreferredSize(new Dimension(0,50));
+        panelSur.setPreferredSize(new Dimension(Integer.MAX_VALUE,50));
         panelSur.setLayout(new BorderLayout());
         panelSur.setBackground(Color.WHITE);
 
@@ -160,8 +160,8 @@ public class ChatIndividual extends JPanel {
     }
 
     public void redimensionar() {
-        panelNorte.setPreferredSize(new Dimension(0, 60));
-        panelSur.setPreferredSize(new Dimension(0,50));
+        panelNorte.setPreferredSize(new Dimension(Integer.MAX_VALUE, 60));
+        panelSur.setPreferredSize(new Dimension(Integer.MAX_VALUE,50));
         cajaMensaje.setPreferredSize(new Dimension(300,50));
         botonEnviar.setPreferredSize(new Dimension(100,50));
 

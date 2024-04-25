@@ -19,6 +19,9 @@ public class Vista {
         return seleccionArchivo.getSelectedFile();
     }
 
+    public String autores(){
+        return "Hecho por:" + "\nDaniel Esteban Camacho Ospina" + "\nGiovanni Alexander Vargas Castañeda" + "\nEdwin Alejandro Orjuela Olarte";
+    }
     public String pedirNombreUsusario(String texto){
         return JOptionPane.showInputDialog(null,texto);
 
